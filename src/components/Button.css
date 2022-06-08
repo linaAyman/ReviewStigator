@@ -1,0 +1,102 @@
+:root{
+    --primary: #fff;
+    --blue:#22528E;
+}
+
+.btn {
+    padding: 8px 20px;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.btn--primary{
+    background-color: transparent;
+    color: #B79854;
+    padding: 8px 20px;
+    border: 1px solid var(--primary);
+    transition: all 0.3s ease-out;
+}
+
+.btn--outline{
+    background-color: transparent;
+    color: #fff;
+    padding: 8px 20px;
+    border: 1px solid var(--primary);
+    transition: all 0.3s ease-out;
+}
+
+.btn--medium{
+    padding: 8px 20px;
+    font-size: 18px;
+}
+
+.btn--large{
+    padding: 12px 26px;
+    font-size: 20px;
+}
+
+.btn--mobile{
+    text-align: center;
+    border-radius: 4px;
+    width: 110%;
+    text-decoration: none;
+    font-size: 20px;
+    background-color: transparent;
+    color: #fff;
+    padding: 14px 20px;
+    border: 1px solid #fff;
+    transition: all 0.3s ease-out;
+}
+
+.btn--wide{
+    padding: 12px 64px;
+    font-size: 20px;
+}
+
+.btn--large:hover, 
+.btn--medium:hover, 
+.btn--mobile:hover {
+    transition: all 0.3s ease-out;
+    background: #fff;
+    color: #B79854;
+}
+
+.btn--wide:hover{
+    color: #fff;
+    background-color: #B79854;
+    transition: all 0.2s ease-out;
+}
+
+.blue{
+    background-color: #22528E;
+    color: #fff;
+    border: none;
+}
+.gold{
+    background-color: #B79854;
+    color: #fff;
+    border: none;
+}
+.red{
+    background-color: #be1d48;
+    color: #fff;
+    border: none;
+}
+.green{
+    background-color: #108b58;
+    color: #fff;
+    border: none;
+}
+.primary{
+    background-color: #22528E;
+    color: #fff;
+    border: none;
+}
+.primary:hover{
+    background-color: #B79854;
+    color: #22528E;
+    border: none;
+}
