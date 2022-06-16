@@ -8,6 +8,7 @@ import './Navbar.css';
 import {IconContext} from 'react-icons/lib'
 
 import dtctv1 from '../Logos/dtctv1.png';
+// import dtctv1 from 'D:/frontend/react-website-10-6/public/images/dtctv4.png';
 function Navbar() {
 const [click, setClick] = useState(false); //state for the click
 const [button, setButton] = useState(true); //state for the button
@@ -96,11 +97,11 @@ window.addEventListener('resize',showButton); //trigger the showButton function 
                             Test a review
                         </NavLink>
                     </li>
-                    <li className="nav-item">
+                    {/* <li className="nav-item">
                         <NavLink activeClassName="nav-links-active" onClick={deactivatePages.bind(this,'contactus')} to='/contactus'className="nav-links">
                             Contact Us
                         </NavLink>
-                    </li>
+                    </li> */}
                     {/* 
                     <li className="nav-btn">
                         {button ? (

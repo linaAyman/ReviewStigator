@@ -1,5 +1,5 @@
 .footer-container {
-    background-color: #469777;
+    background-color: #57077c;
     padding: 4rem 0 2rem 0;
     display: flex;
     flex-direction: column;
@@ -103,7 +103,7 @@
   }
   
   .footer-link-items a:hover {
-    color: #d3714d;
+    color: #B79854;
     transition: 0.3s ease-out;
   }
   

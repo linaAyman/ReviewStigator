@@ -9,13 +9,13 @@ class ApiChart extends Component{
     }
 
 
-    handlePlot1 = () => {
-        Axios.get("http://localhost:9000/plot2_json"),{
-            "url":"..."
-        }
-            .then(resp => {console.log(resp.data); Plotly
-            .newPlot('distChart',resp.data.data,resp.data.layout);})
-        }
+    // handlePlot1 = () => {
+    //     Axios.get("http://localhost:3000/plot2"),{
+    //         "url":"..."
+    //     }
+    //         .then(resp => {console.log(resp.data); Plotly
+    //         .newPlot('distChart',resp.data.data,resp.data.layout);})
+    //     }
 
     componentDidMount() {
         const endpoint="https://data.cityofnewyork.us/resource/cwmx-mvra.json"

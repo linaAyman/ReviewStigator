@@ -1,13 +1,73 @@
 * {box-sizing: border-box;}
+.splitScreen {
+  height: 200vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  /* overflow-y: scroll; */
+  /* overflow-x: scroll; */
+}
+
+.topPane {
+  /* grid-column: 1;
+  grid-row: 1;
+  
+  flex-direction: column;
+  align-items: flex-start; */
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  min-height: 490px;
+  
+}@media (min-width: 768px) {
+  .topPane {
+    float: left;
+    /*position: fixed;*/
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 50%; } }
+
+.bottomPane {
+/* grid-column: 2;
+grid-row: 1;
+
+flex-direction: column;
+align-items: flex-start; */
+display: inline-block;
+position: relative;
+width: 100%;
+min-height: 490px;
+}@media (min-width: 768px) {
+  .bottomPane {
+    float: right;
+    /*position: fixed;*/
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 50%; }}
 
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.row {
+  display: flex;
+}
+
+.column-compare{
+  flex: 50%;
+  padding: 1px;
+}
+
 .topnav {
   overflow: hidden;
   background-color: #e9e9e9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .topnav a {
@@ -32,9 +92,11 @@ body {
 
 .topnav .search-container {
   float: left;
-  padding-right: 50%;
-  padding-top: 3%;
-  padding-bottom: 3%;
+  padding-left: 20%;
+  padding-right: 10%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+
 }
 
 .topnav input[type=text] {

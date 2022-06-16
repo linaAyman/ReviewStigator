@@ -31,29 +31,7 @@ const handleSubmit =() =>{
 
   return (
     <div className='footer-container'>
-      <section className='footer-subscription'>
-        <p className='footer-subscription-heading'>
-          Join our newsletter to receive the latest news
-        </p>
-        <p className='footer-subscription-text'>
-          You can unsubscribe at any time.
-        </p>
-        <div className='input-areas'>
-          <form name='newsteller' target="_blank" action="https://formsubmit.co/2d6e1a89efa6492b6e05e1a2b92816ca" method="POST" onSubmit={handleSubmit}>
-          
-          <input type="hidden" name="_next" value="https://www.ixrfsystems.com/about/"/>
-          <input type="hidden" name="_captcha" value="false"/>
-            <input
-              className='footer-input'
-              name='email'
-              type='email'
-              placeholder='Your Email'
-              required
-            />
-            <Button type='submit' buttonStyle='btn--outline'>Subscribe</Button>
-          </form>
-        </div>
-      </section>
+      
       <div className='footer-links'>
         <div className='footer-link-wrapper'>
 
@@ -143,7 +121,7 @@ const handleSubmit =() =>{
               ReviewStigator
             </Link>
           </div>
-          <small className='website-rights'>© 2021</small>
+          <small className='website-rights'> © 2022</small>
           <div className='social-icons'>
             <Link
               className='social-icon-link'

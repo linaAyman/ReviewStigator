@@ -1,8 +1,8 @@
 var agencies = [
     {
         id:1,
-        url:'//www.leco.com',
-        image: <img src="images/Leco-logo.png" alt="LECO" class="image"/>,
+        url:'//www.amazon.com',
+        image: <img src="images/svg-1.svg" alt="prod1" class="image"/>,
         title: 'Empowering Results',
         category: 'Non-Electronics',
         subCategory: 'Beauty-products',
@@ -10,8 +10,8 @@ var agencies = [
     },
     {
         id:2,
-        url:'//www.ixrfsystems.com/',
-        image: <img src="images/IXRF_Logo.png" alt="IXRF" class="image"/>,
+        url:'//www.amazon.com/',
+        image: <img src="images/svg-2.svg" alt="prod2" class="image"/>,
         title: 'For Over Two Decades,IXRF Has Distinguished Itself as an Innovator in X-Ray Microanalysis',
         category: 'Non-Electronics',
         subCategory: 'Clothing',
@@ -19,8 +19,8 @@ var agencies = [
     },
     {
         id:3,
-        url:'//www.leco.com',
-        image: <img src="images/Leco-logo.png" alt="LECO" class="image"/>,
+        url:'//www.amazon.com',
+        image: <img src="images/svg-3.svg" alt="prod3" class="image"/>,
         title: 'Empowering Results',
         category: 'Electronics',
         subCategory: 'Smart phones',
@@ -28,8 +28,8 @@ var agencies = [
     },
     {
         id:4,
-        url:'//www.ixrfsystems.com/',
-        image: <img src="images/IXRF_Logo.png" alt="IXRF" class="image"/>,
+        url:'//www.amazon.com/',
+        image: <img src="images/svg-4.svg" alt="prod4" class="image"/>,
         title: 'For Over Two Decades,IXRF Has Distinguished Itself as an Innovator in X-Ray Microanalysis',
         category: 'Electronics',
         subCategory: 'Laptops',
@@ -37,8 +37,8 @@ var agencies = [
     },
     {
         id:5,
-        url:'//www.leco.com',
-        image: <img src="images/Leco-logo.png" alt="LECO" class="image"/>,
+        url:'//www.amazon.com',
+        image: <img src="images/svg-5.svg" alt="prod5" class="image"/>,
         title: 'Empowering Results',
         category: 'Electronics',
         subCategory: 'Gaming,Laptops',
@@ -46,8 +46,8 @@ var agencies = [
     },
     {
         id:6,
-        url:'//www.ixrfsystems.com/',
-        image: <img src="images/IXRF_Logo.png" alt="IXRF" class="image"/>,
+        url:'//www.amazon.com/',
+        image: <img src="images/svg-6.svg" alt="prod6" class="image"/>,
         title: 'For Over Two Decades,IXRF Has Distinguished Itself as an Innovator in X-Ray Microanalysis',
         category: 'Non-Electronics',
         subCategory: 'Educational',

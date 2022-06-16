@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 import { useState,useEffect } from 'react'
 import Menu from '../../Menu'
 import FilterButton from '../../FilterButton'
@@ -18,6 +19,7 @@ const Agencies = (props=null) =>
     // console.log(props.location.state.category);
     // console.log(props.location.state.subCategory);
 
+    // const[products,setProducts] = useState(products);
     const [menuItem, setMenuItem] = useState(agencies);
     const [buttons, setButtons] = useState(allCategories);
     const [subButtons, setSubButtons] = useState(defaultSub);
@@ -25,7 +27,14 @@ const Agencies = (props=null) =>
     
 
     useEffect(() =>{
-        console.log(props);
+        // console.log(props);
+
+        // const loadProducts = async() =>{
+        //   const response = axios.get('http://localhost:4000/products'); //MAFROOD YEB2A ARRAY OF DICS
+        //   setProducts(response.data.data)
+        // }
+        // loadProducts();
+
         if(props.location.state){
             const subCategories=categories.filter(c => c.category === props.location.state.category).map(sc => sc.subCategories.split(",")).flat(1);
             setSubButtons([ ...new Set(subCategories)]);
