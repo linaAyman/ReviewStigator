@@ -307,7 +307,7 @@ function Home() {
     }
 
     return (
-        <div >
+        <div className='main'>
             <div className="topnav">
                 <div className='search-container'>
                     

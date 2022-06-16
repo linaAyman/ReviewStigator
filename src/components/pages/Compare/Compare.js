@@ -382,7 +382,7 @@ function Compare() {
 
 
         
-            <div >
+            <div className='splitScreen'>
 
                 <div className='topPane'>
                     <div className="topnav">
@@ -441,11 +441,6 @@ function Compare() {
 
                 
             </div>
-            
-            
-       
-            
-
     )
 }
 

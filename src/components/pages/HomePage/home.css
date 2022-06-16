@@ -9,6 +9,10 @@ h1{
 padding-left: 6%;
 }
 
+.main{
+  height: 50vh;
+}
+
 .row {
   display: flex;
 }
