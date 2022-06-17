@@ -6,6 +6,7 @@ import {useState} from 'react'
 import Plot from 'react-plotly.js'
 import { Button } from './Button'
 import Modal from 'react-modal';
+import { FaBars,FaTimes } from 'react-icons/fa'
 Modal.setAppElement("#root");
 
 function Menu({menuItem}) {
@@ -195,14 +196,14 @@ function Menu({menuItem}) {
             display:"-ms flexbox"
           },
         content: {
-          top: '85%',
-          left: '55%',
+          top: '55%',
+          left: '50%',
           right: '20%',
           bottom: '10%',
           marginRight: '-50%',
           transform: 'translate(-50%, -50%)',
           opacity: "90%",
-          height:"900px", //or maxHeight
+          height:"550px", //or maxHeight
           border:" solid 1px purple", 
         },
       };
@@ -272,6 +273,10 @@ function Menu({menuItem}) {
             contentLabel="Product Statistics"
             closeTimeoutMS={500}
         >
+            <div style={{position: "relative", paddingLeft: "95%", fontSize: "30px" ,color: "#57077c",cursor:"pointer"}}
+            onClick={closeModal}>
+                {<FaTimes/> }
+            </div>
             <h2 style={{color:"#57077c"}} ref={(_subtitle) => (subtitle = _subtitle)}>Retrieved product statistics</h2>
             {plotDiv(modalIsOpen)}
             <Button onClick={closeModal}>close</Button>
