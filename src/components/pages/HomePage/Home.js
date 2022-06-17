@@ -282,7 +282,7 @@ function Home() {
             
             else{
                 return (
-                    <div></div>
+                    <div className='main'></div>
                 )
                        
             }
@@ -307,7 +307,7 @@ function Home() {
     }
 
     return (
-        <div className='main'>
+        <div >
             <div className="topnav">
                 <div className='search-container'>
                     

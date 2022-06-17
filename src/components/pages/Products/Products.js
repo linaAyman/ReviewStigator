@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useState,useEffect } from 'react'
 import Menu from '../../Menu'
 import FilterButton from '../../FilterButton'
-import {agencies, categories} from './AgenciesData'
+import {agencies, categories} from './ProductsData'
 import { useHistory, useLocation } from 'react-router'
 
 const allCategories = ['All', ...new Set(agencies.map(agency => agency.category))];

@@ -78,11 +78,13 @@ function ReviewTest(){
                 <div className='search-container'>
 
                     <textarea name="search"
-                        placeholder="Search by a review.."
+                        placeholder="Search by a review..(limit of 300 words)"
                         onChange={e => onChangeHandler(e.target.value)}
                         value={text}
                         cols="40" 
-                        rows="5">
+                        rows="5"
+                        maxLength="300"
+                        >
                 
                     </textarea>
 
