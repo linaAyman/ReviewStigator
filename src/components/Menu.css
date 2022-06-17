@@ -16,7 +16,7 @@
     text-decoration: none;
     width: 100%;
     padding: 1.2rem 1.2rem;
-    background: linear-gradient(45deg,#B79854 0%,#461a4c 80%);
+    background: linear-gradient(45deg,#B79854 0%,#57077c 80%);
     
 }
 
@@ -33,7 +33,7 @@
 }
 
 .item h2{
-    color: #461a4c;
+    color: #57077c;
     font-size: 2rem;
     font-weight: 800;
     margin: 1rem 0;

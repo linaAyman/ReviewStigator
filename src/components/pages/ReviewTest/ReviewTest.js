@@ -9,8 +9,9 @@ function ReviewTest(){
 
     const [text,setText]= useState('')
     const [data, setData] = useState([])
-    const [deets, setDeets] = useState([])
     const [clicked, setClick] = useState(false)
+    
+
 
     const onSubmitHndler=(text) => {
         setText(text)
@@ -27,8 +28,13 @@ function ReviewTest(){
     }
 
     const printRes=(isClicked)=>{
-        console.log(data["aspects"])
-        console.log("click? ",isClicked)
+        // console.log(data["aspects"])
+        // console.log("click? ",isClicked)
+
+        // resText=data['text'];
+        // aspect=data['aspect'];
+        // color=data['Colorflag']=='positive'?'green': data[Colorflag]=='negative'?'red':'yellow';
+
         if (isClicked){
 
             return(
@@ -51,18 +57,35 @@ function ReviewTest(){
         setText(text)
     }
 
-    const Highlighted = ({ text = "", highlight = "" }) => {
+    const Highlighted = ({ text = "", highlight = "",color="yellow" }) => {
+        
         if (!highlight.trim()) {
           return <span>{text}</span>;
         }
         const regex = new RegExp(`(${highlight})`, "gi");
         const parts = text.split(regex);
+
+        //text colors & BG colors
+        let textClr,bgClr;
+        if(color=='green')
+        {
+            textClr="#286a49";
+            bgClr="#2ed682";        
+        }
+        else if (color=='yellow'){
+            textClr="#f3f31c";
+            bgClr="#f3f31c";
+        }
+        else if (color="red"){
+            textClr="#eb3f3f";
+            bgClr="#e85f5f";
+        }
       
         return (
           <span>
             {parts.filter(String).map((part, i) => {
               return regex.test(part) ? (
-                <mark style={{color: 'green',background: '#00CC00'}} key={i}>{part}</mark>
+                <mark style={{color: color,background: color}} key={i}>{part}</mark>
               ) : (
                 <span key={i}>{part}</span>
               );

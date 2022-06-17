@@ -56,7 +56,7 @@ function Home() {
     const handleSubmit =() =>{
         var form = document.getElementsByName("newsteller")[0];
         form.reset();
-      }
+    }
 
     const onSubmitHndler=(text) => {
         setText(text)
