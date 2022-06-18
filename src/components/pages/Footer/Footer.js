@@ -38,71 +38,71 @@ const handleSubmit =() =>{
           <div className='footer-link-items'>
             <h2 id='agencies'>Products</h2>
             
-            {/* <a onClick={nav.bind(this,'Sector','Cement')}>hiiiii</a> */}
+            {/* <a onClick={nav.bind(this,'Non-Electronics','none')}>hiiiii</a> */}
 
-              <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Sector','none')}>
-                <h3>Non-Electronics</h3>
-              </a>
-                
-                <ul className="footer-link-items-li">
-                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Sector','Cement')} ><li>Clothing</li></a>
-                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Sector','Cement')} ><li>Beauty-products</li></a> 
-                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Sector','Cement')}><li>House-products</li></a>
-                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Sector','Cement')}><li>Educational</li></a>
-                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Sector','Cement')}><li>Food and Beverage</li></a>
-                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Sector','Cement')}><li>to-add</li></a>
-                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Sector','Cement')}><li>to-add</li></a>
-                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Sector','Cement')}><li>to-add</li></a>
-                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Sector','Cement')}><li>to-add</li></a>
-                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Sector','Cement')}><li>to-add</li></a>
-                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Sector','Cement')}><li>to-add</li></a>
-                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Sector','Cement')}><li>to-add</li></a>
-                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Sector','Cement')}><li>to-add</li></a>
-                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Sector','Cement')}><li>to-add</li></a>
+            <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Non-Electronics','none')}>
+              <h3>Non-Electronics</h3>
+            </a>
+              
+              <ul className="footer-link-items-li">
+                <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Non-Electronics','Clothing')} ><li>Clothing</li></a>
+                <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Non-Electronics','Beauty-products')} ><li>Beauty-products</li></a> 
+                <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Non-Electronics','House-products')}><li>House-products</li></a>
+                <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Non-Electronics','Educational')}><li>Educational</li></a>
+                <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Non-Electronics','Food and Beverage')}><li>Food and Beverage</li></a>
+                <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Non-Electronics','none')}><li>to-add</li></a>
+                <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Non-Electronics','none')}><li>to-add</li></a>
+                <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Non-Electronics','none')}><li>to-add</li></a>
+                <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Non-Electronics','none')}><li>to-add</li></a>
+                <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Non-Electronics','none')}><li>to-add</li></a>
+                <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Non-Electronics','none')}><li>to-add</li></a>
+                <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Non-Electronics','none')}><li>to-add</li></a>
+                <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Non-Electronics','none')}><li>to-add</li></a>
+                <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Non-Electronics','none')}><li>to-add</li></a>
 
-                </ul>
-              </div>
+              </ul>
+          </div>
 
               <div className='footer-link-items' id='app'>
-                <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Application','none')}>
+                <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Electronics','none')}>
                   <h3>Electronics</h3>
                 </a>
                 
                 <ul className="footer-link-items-li">
-                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Application','none')}><li>Smart phones</li></a>
-                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Application','none')}><li>Laptops</li></a>
-                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Application','none')}><li>Tvs</li></a>
-                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Application','none')}><li>Gaming</li></a>
-                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Application','none')}><li>Cameras</li></a>
-                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Application','none')}><li>to-add</li></a>
-                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Application','none')}><li>to-add</li></a>
-                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Application','none')}><li>to-add</li></a>
-                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Application','none')}><li>to-add</li></a>
-                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Application','none')}><li>to-add</li></a>
-                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Application','none')}><li>to-add</li></a>
-                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Application','none')}><li>to-add</li></a>
-                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Application','none')}><li>to-add</li></a>
-                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Application','none')}><li>to-add</li></a>
+                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Electronics','Smart phones')}><li>Smart phones</li></a>
+                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Electronics','Laptops')}><li>Laptops</li></a>
+                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Electronics','Tvs')}><li>Tvs</li></a>
+                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Electronics','Gaming')}><li>Gaming</li></a>
+                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Electronics','Cameras')}><li>Cameras</li></a>
+                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Electronics','none')}><li>to-add</li></a>
+                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Electronics','none')}><li>to-add</li></a>
+                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Electronics','none')}><li>to-add</li></a>
+                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Electronics','none')}><li>to-add</li></a>
+                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Electronics','none')}><li>to-add</li></a>
+                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Electronics','none')}><li>to-add</li></a>
+                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Electronics','none')}><li>to-add</li></a>
+                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Electronics','none')}><li>to-add</li></a>
+                  <a style={{cursor: 'pointer'}} onClick={nav.bind(this,'Electronics','none')}><li>to-add</li></a>
 
                 </ul>
                 
-          </div>
+            </div>
 
-          <div className='footer-link-items'>
+          {/* <div className='footer-link-items'>
             <h2>About Us</h2>
             <Link to='/'>Testimonials</Link>
             <Link to='/'>Careers</Link>
             <Link to='/'>Investors</Link>
-          </div>
+          </div> */}
           
         </div>
         <div className='footer-link-wrapper'>
           
-          <div className='footer-link-items'>
+          {/* <div className='footer-link-items'>
             <h2>Contact Us</h2>
             <Link to='/'>Contact</Link>
             <Link to='/'>Support</Link>
-          </div>
+          </div> */}
 
           <div className='footer-link-items'>
             <h2>Social Media</h2>
@@ -121,7 +121,9 @@ const handleSubmit =() =>{
               ReviewStigator
             </Link>
           </div>
-          <small className='website-rights'> © 2022</small>
+          
+          <medium className='website-rights'> © 2022</medium>
+          
           <div className='social-icons'>
             <Link
               className='social-icon-link'
