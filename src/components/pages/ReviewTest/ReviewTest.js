@@ -98,7 +98,7 @@ function ReviewTest(){
 
         <div>
             <div className='topnav'>
-                <div className='search-container'>
+                <div className='search-container-review'>
 
                     <textarea name="search"
                         placeholder="Search by a review..(limit of 300 words)"
@@ -118,7 +118,8 @@ function ReviewTest(){
                 onChange={e => onChangeHandler(e.target.value)}
                 value={text}
                 /> */}
-                <button 
+                <button
+                style={{color: "#57077c"}}
                 onClick={() => onSubmitHndler(text)}
                 type="submit"><FaSearch /></button>
                 </div>
