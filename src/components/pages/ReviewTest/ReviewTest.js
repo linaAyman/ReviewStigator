@@ -39,11 +39,12 @@ function ReviewTest(){
 
             return(
                 <div>
-                    <h3> The result of the ABSA for your input: </h3>
+                    <h3 style={{ color: '#57077c'}}> The result of the ABSA for your input: </h3>
                     <Highlighted
                         // text={data["Aspect"]+"/n"+data["Sentiment"]} 
-                        text="the battery lasts little"
-                        highlight="battery"
+                        text="I hate the lens of this camera"
+                        highlight="lens"
+                        color='red'
                     />
     
                 </div>
@@ -59,35 +60,36 @@ function ReviewTest(){
 
     const Highlighted = ({ text = "", highlight = "",color="yellow" }) => {
         
+        //text colors & BG colors
+        let textClr, bgClr;
+        if (color == 'green') {
+            textClr = "#286a49";
+            bgClr = "#2ed682";
+        }
+        else if (color == 'yellow') {
+            textClr = "#f3f31c";
+            bgClr = "#f3f31c";
+        }
+        else if (color == "red") {
+            textClr = "#eb3f3f";
+            bgClr = "#e98484";
+        }
+
         if (!highlight.trim()) {
-          return <span>{text}</span>;
+          return <span style={{color:textClr}}>{text}</span>;
         }
         const regex = new RegExp(`(${highlight})`, "gi");
         const parts = text.split(regex);
 
-        //text colors & BG colors
-        let textClr,bgClr;
-        if(color=='green')
-        {
-            textClr="#286a49";
-            bgClr="#2ed682";        
-        }
-        else if (color=='yellow'){
-            textClr="#f3f31c";
-            bgClr="#f3f31c";
-        }
-        else if (color="red"){
-            textClr="#eb3f3f";
-            bgClr="#e85f5f";
-        }
+        
       
         return (
           <span>
             {parts.filter(String).map((part, i) => {
               return regex.test(part) ? (
-                <mark style={{color: color,background: color}} key={i}>{part}</mark>
+                <mark style={{color: textClr,background: bgClr}} key={i}>{part}</mark>
               ) : (
-                <span key={i}>{part}</span>
+                      <span style={{ color: textClr }}  key={i}>{part}</span>
               );
             })}
           </span>

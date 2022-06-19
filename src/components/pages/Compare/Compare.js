@@ -85,7 +85,7 @@ function Compare() {
         // setElectronics(data["isElectronic"])
         // console.log("ISELECTRONICS", data["isElectronic"]);
 
-        let pos,neu,neg,isElectric,isFound;
+        let pos,neu,neg,isElectric,isFound,img1,img2,img3,Name;
 
         if (id==1)
         {
@@ -94,10 +94,14 @@ function Compare() {
             neg=neg1;
             isElectric=data1["isElectronic"];
             isFound=data1["isFound"];
+            img1 = data1["positiveWordCloud"];
+            img2 = data1["neutralWordCloud"];
+            img3 = data1["negativeWordCloud"];
+            Name=data1["productName"];
 
             var trace1 = {
                 x: ['Display', 'Battery', 'Performance', 'Price', 'Camera', 'Sound', 'Design', 'Software', 'Hardware', 'Support/Service'],
-                y: deets1["postives"],//[20, 14, 23, 27, 20, 30, 40, 50, 60,23],
+                y: deets1["positives"],//[20, 14, 23, 27, 20, 30, 40, 50, 60,23],
                 name: 'Positive',
                 type: 'bar'
             };
@@ -122,10 +126,14 @@ function Compare() {
             neg=neg2;
             isElectric=data2["isElectronic"];
             isFound=data2["isFound"];
+            img1 = data2["positiveWordCloud"];
+            img2=data2["neutralWordCloud"];
+            img3=data2["negativeWordCloud"];
+            Name=data2["productName"];
 
             var trace1 = {
                 x: ['Display', 'Battery', 'Performance', 'Price', 'Camera', 'Sound', 'Design', 'Software', 'Hardware', 'Support/Service'],
-                y: deets2["postives"],//[20, 14, 23, 27, 20, 30, 40, 50, 60,23],
+                y: deets2["positives"],//[20, 14, 23, 27, 20, 30, 40, 50, 60,23],
                 name: 'Positive',
                 type: 'bar'
             };
@@ -149,7 +157,7 @@ function Compare() {
         var layout = { barmode: 'group', width: 300, title: 'Distribution of Aspects' };
         let aspects = ['Display', 'Battery', 'Performance', 'Price', 'Camera', 'Sound', 'Design', 'Software', 'Hardware', 'Support/Service']
         
-        if(isFound){
+        if(isFound===false){
             return(
 
                 
@@ -206,7 +214,7 @@ function Compare() {
             )
         }
 
-        else{
+        else if (isFound === true) {
 
             if (isClicked && isElectric) {
                 // setClick(false)
@@ -220,43 +228,60 @@ function Compare() {
 
 
                         <div>
-                            <h1 style={{ color: '#57077c' }}>Word Clouds:</h1>
+                            <h1 style={{ color: '#57077c' }}>{Name}</h1>
+                            <h1 style={{ color: '#57077c' }}>Word Clouds</h1>
                             <div class="row">
-                                <div class="column-compare">
-                                    <img src="images/dtctv4.png" alt="wordCloud1" style={{width:"100%"}}/>
+                                <div class="column-home">
+                                    <img src={img1} alt="wordCloud1" style={{width:"100%"}}/>
+                                    <figcaption style={{ marginLeft: "25%", color: '#57077c' }}>Fig.1 - Positive WordCloud.</figcaption>
                                 </div>
-                                <div class="column-compare">
-                                    <img src="images/dtctv4.png" alt="wordCloud2" style={{width:"100%"}}/>
+                                <div class="column-home">
+                                    <img src={img2} alt="wordCloud2" style={{width:"100%"}}/>
+                                    <figcaption style={{ marginLeft: "25%", color: '#57077c' }}>Fig.2 - Neutral WordCloud.</figcaption>
+
                                 </div>
-                                <div class="column-compare">
-                                    <img src="images/dtctv4.png" alt="wordCloud3" style={{width:"50%"}}/>
+                                <div class="column-home">
+                                    <img src={img3} alt="wordCloud3" style={{width:"100%"}}/>
+                                    <figcaption style={{ marginLeft: "25%", color: '#57077c' }}>Fig.3 - Negative WordCloud.</figcaption>
+
                                 </div>
                             </div>
                         </div>
                         
+                        <div></div>
+
                         <div>
-                            <div></div>
-                            {/* <h1 style={{ color: '#469777' }}>Bar Plot</h1> */}
-                            <Plot data={[trace1, trace2, trace3]}
+                            <div style={{ paddingLeft:"3%",marginTop: "5%" }}></div>
+                            <h1 style={{ color: '#57077c' }}>Overall features and aspects</h1>
+                            <Plot
+                                style={{ width: '150%', height: "100%" }}
+                                data={[trace1, trace2, trace3]}
                                 layout={{ layout }}
                             />
                         </div>
     
                         
     
-                        {aspects.map((it, index) => (
-                                <div>
-                                    <h1 style={{ color: '#469777' }}>{"Aspect: "+it}</h1>
-                                    <Plot
-                                    data={[{
-                                        values: [pos[index], neu[index], neg[index]],
-                                        labels: ['positives','neutral','negatives'],
-                                        type: 'pie'
-                                    }]}
-                                    layout={{width: 500, height: 500, title: it+' statistics'}}
-                                    />
-                                </div>
-                            ))}
+                        <div>
+                            {aspects.map((it, index) => (
+                                    <div>
+                                        <h1 style={{ color: '#57077c' }}>{"Aspect: "+it}</h1>
+                                        <Plot
+                                        data={[{
+                                            values: [pos[index], neu[index], neg[index]],
+                                            marker: {
+                                                'colors': ['#2ca02c',
+                                                    '#ff7f0e',
+                                                    '#1f77b4']
+                                            },
+                                            labels: ['positives','neutrals','negatives'],
+                                            type: 'pie'
+                                        }]}
+                                        layout={{width: 500, height: 500, title: it+' statistics'}}
+                                        />
+                                    </div>
+                                ))}
+                        </div>
     
                     </div>
                 )
@@ -274,22 +299,32 @@ function Compare() {
                         padding: '3%' }}>
 
                         <div>
-                            <h1 style={{ color: '#57077c' }}>Word Clouds:</h1>
+                            <h1 style={{ color: '#57077c' }}>{Name}</h1>
+                            <h1 style={{ color: '#57077c' }}>Word Clouds</h1>
                             <div class="row">
-                                <div class="column-compare">
-                                    <img src="images/dtctv4.png" alt="wordCloud1" style={{width:"100%"}}/>
+                                <div class="column-home">
+                                    <img src={img1} alt="wordCloud1" style={{width:"100%"}}/>
+                                    <figcaption style={{ marginLeft: "25%", color: '#57077c' }}>Fig.1 - Positive WordCloud.</figcaption>
                                 </div>
-                                <div class="column-compare">
-                                    <img src="images/dtctv4.png" alt="wordCloud2" style={{width:"100%"}}/>
+                                <div class="column-home">
+                                    <img src={img2} alt="wordCloud2" style={{width:"100%"}}/>
+                                    <figcaption style={{ marginLeft: "25%", color: '#57077c' }}>Fig.2 - Neutral WordCloud.</figcaption>
+
                                 </div>
-                                <div class="column-compare">
-                                    <img src="images/dtctv4.png" alt="wordCloud3" style={{width:"50%",marginLeft:"25%"}}/>
+                                <div class="column-home">
+                                    <img src={img3} alt="wordCloud3" style={{width:"100%"}}/>
+                                    <figcaption style={{ marginLeft: "25%", color: '#57077c' }}>Fig.3 - Negative WordCloud.</figcaption>
+
                                 </div>
                             </div>
                         </div>
 
-                        <div>
-                            <div></div>
+                        <div></div>
+
+                        <div></div>
+                        <div style={{ marginTop: "5%" }}>
+
+                            <h1 style={{ color: '#57077c' }}>Pie Plot</h1>
                             <Plot
                                 data={[{
                                     values: [pos[0], neu[0], neg[0]],
@@ -304,7 +339,7 @@ function Compare() {
     
                     // <div style={{ flexDirection: 'row' }}>
                     // <div>
-                    //         {/* <h1 style={{ color: '#469777' }}>Bar Plot</h1> */}
+                    //         {/* <h1 style={{ color: '#57077c' }}>Bar Plot</h1> */}
                     //         <Plot data={[trace1, trace2, trace3]}
                     //             layout={{ layout }}
                     //         />
@@ -333,6 +368,12 @@ function Compare() {
             }
 
         }
+        else {
+            return (
+                <div></div>
+            )
+
+        }
     }
 
     const onSubmitHndler = (text,id) => {
@@ -341,32 +382,46 @@ function Compare() {
             setClick1(true)
 
             axios.post('http://localhost:4000/reviews_statistics',
-            {
-                "url": text
-            }).then(res => {
-                console.log("gowaaa el submit", res.data[0]);
-                setDeets1(res.data[0]["details"]);
-                setData1(res.data[0]);
-                console.log("deets", res.data[0]["details"]["postives"])
-                setPos1(res.data[0]["details"]["postives"]);
-                setNeu1(res.data[0]["details"]["neutral"]);
-                setNeg1(res.data[0]["details"]["negatives"]); })
+                {
+                    "url": text
+                }).then(res => {
+                    console.log("gowaaa el submit", res.data[0]["isFound"]);
+                    if (res.data[0]["isFound"] === true) {
+                        console.log("ANA FEL IF", res.data);
+                        setDeets1(res.data[0]["details"]);
+                        setData1(res.data[0]);
+                        // console.log("deets", res.data[0]["details"]["postives"]) 
+                        setPos1(res.data[0]["details"]["positives"]);
+                        setNeu1(res.data[0]["details"]["neutral"]);
+                        setNeg1(res.data[0]["details"]["negatives"]);
+                    } else {
+                        setData1(res.data[0]);
+                        console.log("ANA FEL ELSE", res.data);
+                    }
+                })
         }
         else if (id === 2) {
             setText2(text);
             setClick2(true)
 
             axios.post('http://localhost:4000/reviews_statistics',
-            {
-                "url": text
-            }).then(res => {
-                console.log("gowaaa el submit", res.data[0]);
-                setDeets2(res.data[0]["details"]);
-                setData2(res.data[0]);
-                console.log("deets", res.data[0]["details"]["postives"])
-                setPos2(res.data[0]["details"]["postives"]);
-                setNeu2(res.data[0]["details"]["neutral"]);
-                setNeg2(res.data[0]["details"]["negatives"]); })
+                {
+                    "url": text
+                }).then(res => {
+                    console.log("gowaaa el submit", res.data[0]["isFound"]);
+                    if (res.data[0]["isFound"] === true) {
+                        console.log("ANA FEL IF", res.data);
+                        setDeets2(res.data[0]["details"]);
+                        setData2(res.data[0]);
+                        // console.log("deets", res.data[0]["details"]["postives"]) 
+                        setPos2(res.data[0]["details"]["positives"]);
+                        setNeu2(res.data[0]["details"]["neutral"]);
+                        setNeg2(res.data[0]["details"]["negatives"]);
+                    } else {
+                        setData2(res.data[0]);
+                        console.log("ANA FEL ELSE", res.data);
+                    }
+                })
         }
         
 
@@ -388,7 +443,7 @@ function Compare() {
                     <div className="topnav">
                         <div className='search-container'>
                             
-                            <h1 style={{ color: '#57077c' }}>Product 1</h1>
+                            <h1 style={{ color: '#57077c' }}>First Product</h1>
                             <input
                             name="search1" 
                             type="text" placeholder="Search by product link.."
@@ -416,7 +471,7 @@ function Compare() {
                 <div className='bottomPane'>
                     <div className="topnav">
                         <div className='search-container'>
-                            <h1 style={{ color: '#57077c' }}>Product 2</h1>
+                            <h1 style={{ color: '#57077c' }}>Second Product</h1>
                             <input
                             name="search2" 
                             type="text" placeholder="Another product link.."

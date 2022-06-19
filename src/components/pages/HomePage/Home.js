@@ -67,13 +67,19 @@ function Home() {
         {
             "url":text
             }).then(res => { 
-                console.log("gowaaa el submit", res.data[0]);
-                 setDeets(res.data[0]["details"]); 
-                 setData(res.data[0]); 
-                console.log("deets", res.data[0]["details"]["postives"]) 
-                setPos(res.data[0]["details"]["postives"]);
-                setNeu(res.data[0]["details"]["neutral"]);
-                setNeg(res.data[0]["details"]["negatives"]);
+                console.log("gowaaa el submit", res.data[0]["isFound"]);
+                if (res.data[0]["isFound"]===true){
+                    console.log("ANA FEL IF", res.data);
+                    setDeets(res.data[0]["details"]); 
+                    setData(res.data[0]); 
+                    // console.log("deets", res.data[0]["details"]["postives"]) 
+                    setPos(res.data[0]["details"]["positives"]);
+                    setNeu(res.data[0]["details"]["neutral"]);
+                    setNeg(res.data[0]["details"]["negatives"]);
+                } else{
+                    setData(res.data[0]);
+                    console.log("ANA FEL ELSE", res.data);
+                }
                 })
         
         // console.log(res.data);
@@ -93,7 +99,7 @@ function Home() {
         
         var trace1 = {
             x: ['Display', 'Battery', 'Performance', 'Price', 'Camera', 'Sound', 'Design', 'Software', 'Hardware', 'Support/Service'],
-            y: deets["postives"],
+            y: deets["positives"],
             name: 'Positive',
             type: 'bar'
         };
@@ -113,8 +119,10 @@ function Home() {
 
         var layout = { barmode: 'group',autosize: false,width: 800, height: 500 ,title: 'Distribution of Aspects' };
         let aspects = ['Display', 'Battery', 'Performance', 'Price', 'Camera', 'Sound', 'Design', 'Software', 'Hardware', 'Support/Service']
-
-        if(data["isFound"]){
+        
+        console.log("el data: ",data);
+        console.log("is found "+data["isFound"],"type: ",typeof(data["isFound"]));
+        if(data["isFound"]===false){
             return(
 
                 
@@ -171,7 +179,7 @@ function Home() {
             )
         }
 
-        else{
+        else if (data["isFound"] === true) {
 
             if (isClicked && data["isElectronic"]) {
                 // setClick(false)
@@ -186,26 +194,34 @@ function Home() {
                         
                         
                         <div>
-                            <h1 style={{ color: '#57077c' }}>Word Clouds:</h1>
+                            
+                            <h1 style={{ color: '#57077c' }}>{data["productName"]}</h1>
+                            <h1 style={{ color: '#57077c' }}>Word Clouds</h1>
                             <div class="row">
                                 <div class="column-home">
-                                    <img src="images/dtctv4.png" alt="wordCloud1" style={{width:"100%"}}/>
+                                    <img src={data["positiveWordCloud"]} alt="wordCloud1" style={{width:"100%"}}/>
+                                    <figcaption style={{ marginLeft: "25%", color: '#57077c' }}>Fig.1 - Positive WordCloud.</figcaption>
                                 </div>
                                 <div class="column-home">
-                                    <img src="images/dtctv4.png" alt="wordCloud2" style={{width:"100%"}}/>
+                                    <img src={data["neutralWordCloud"]} alt="wordCloud2" style={{width:"100%"}}/>
+                                    <figcaption style={{ marginLeft: "25%", color: '#57077c' }}>Fig.2 - Neutral WordCloud.</figcaption>
+
                                 </div>
                                 <div class="column-home">
-                                    <img src="images/dtctv4.png" alt="wordCloud3" style={{width:"100%"}}/>
+                                    <img src={data["negativeWordCloud"]} alt="wordCloud3" style={{width:"100%"}}/>
+                                    <figcaption style={{ marginLeft: "25%", color: '#57077c' }}>Fig.3 - Negative WordCloud.</figcaption>
+
                                 </div>
                             </div>
                         </div>
 
+                        <div></div>
 
                         <div>
-                            <div></div>
-                            <h1 style={{ color: '#57077c' ,width: '100%', height: "100%" }}>overall features and aspects</h1>
+                            <div style={{marginTop:"5%"}}></div>
+                            <h1 style={{ color: '#57077c' ,width: '100%', height: "100%" }}>Overall features and aspects</h1>
                             <Plot 
-                                style={{width: '100%', height: "100%"}}
+                                style={{width: '250%', height: "100%"}}
                                 data={[trace1, trace2, trace3]}
                                 layout={{ layout }}
                             />
@@ -221,6 +237,11 @@ function Home() {
                                     <Plot
                                         data={[{
                                             values: [pos[index], neu[index], neg[index]],
+                                            marker: {
+                                                'colors': ['#2ca02c',
+                                                    '#ff7f0e',
+                                                    '#1f77b4']
+                                            },
                                             labels: ['positives', 'neutral', 'negatives'],
                                             type: 'pie'
                                         }]}
@@ -248,21 +269,30 @@ function Home() {
                         width: '100%',
                         padding: '3%' }}>
                         <div>
+
+                        <h1 style={{ color: '#57077c' }}>{data["productName"]}</h1>
                             <h1 style={{ color: '#57077c' }}>Word Clouds:</h1>
                             <div class="row">
                                 <div class="column-home">
-                                    <img src="images/dtctv4.png" alt="wordCloud1" style={{width:"100%"}}/>
+                                    <img src={data["positiveWordCloud"]} alt="wordCloud1" style={{ width: "100%" }} />
+                                    <figcaption style={{ marginLeft: "25%", color: '#57077c' }}>Fig.1 - Positive WordCloud.</figcaption>
                                 </div>
                                 <div class="column-home">
-                                    <img src="images/dtctv4.png" alt="wordCloud2" style={{width:"100%"}}/>
+                                    <img src={data["neutralWordCloud"]} alt="wordCloud2" style={{ width: "100%" }} />
+                                    <figcaption style={{ marginLeft: "25%", color: '#57077c' }}>Fig.2 - Neutral WordCloud.</figcaption>
+
                                 </div>
                                 <div class="column-home">
-                                    <img src="images/dtctv4.png" alt="wordCloud3" style={{width:"100%"}}/>
+                                    <img src={data["negativeWordCloud"]} alt="wordCloud3" style={{ width: "100%" }} />
+                                    <figcaption style={{ marginLeft: "25%", color: '#57077c' }}>Fig.3 - Negative WordCloud.</figcaption>
+
                                 </div>
                             </div>
-                        </div> 
-                        <div>
+                        </div>
+
                         <div></div>
+                        <div tyle={{ marginTop: "10%" }}>
+                        
                             <h1 style={{ color: '#57077c' }}>Pie Plot</h1>
                             <Plot
                                 data={[{
@@ -286,6 +316,12 @@ function Home() {
                 )
                        
             }
+
+        }
+        else {
+            return (
+                <div className='main'></div>
+            )
 
         }
         
@@ -322,11 +358,11 @@ function Home() {
                 <button type="submit"
                 onClick={ ()=>onSubmitHndler(text)  }
                 ><FaSearch style={{color: "#57077c"}} /></button>
-                {suggestions && suggestions.map((suggestion, i)=>
+                {/* {suggestions && suggestions.map((suggestion, i)=>
                     <div key={i}
                     onClick={ ()=>onSuggestHandler(suggestion.email)}
                     >{suggestion.email}</div>
-                )}
+                )} */}
 
                 </div>
                 

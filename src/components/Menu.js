@@ -36,8 +36,8 @@ function Menu({menuItem}) {
                 console.log("gowaaa el submit", res.data[0]);
                 setDeets(res.data[0]["details"]); 
                 setData(res.data[0]); 
-                console.log("deets", res.data[0]["details"]["postives"]) 
-                setPos(res.data[0]["details"]["postives"]);
+                console.log("deets", res.data[0]["details"]["positives"]) 
+                setPos(res.data[0]["details"]["positives"]);
                 setNeu(res.data[0]["details"]["neutral"]);
                 setNeg(res.data[0]["details"]["negatives"]);
                 setIsOpen(true);
@@ -50,7 +50,7 @@ function Menu({menuItem}) {
         
         var trace1 = {
             x: ['Display', 'Battery', 'Performance', 'Price', 'Camera', 'Sound', 'Design', 'Software', 'Hardware', 'Support/Service'],
-            y: deets["postives"],
+            y: deets["positives"],
             name: 'Positive',
             type: 'bar'
         };
@@ -86,26 +86,33 @@ function Menu({menuItem}) {
                     
                     
                     <div>
-                        <h1 style={{ color: '#57077c' }}>Word Clouds:</h1>
+                        <h1 style={{ color: '#57077c' }}>{data["productName"]}</h1>
+                        <h1 style={{ color: '#57077c' }}>Word Clouds</h1>
                         <div class="row">
                             <div class="column-home">
-                                <img src="images/dtctv4.png" alt="wordCloud1" style={{width:"100%"}}/>
+                                <img src={data["positiveWordCloud"]} alt="wordCloud1" style={{ width: "100%" }} />
+                                <figcaption style={{ marginLeft: "25%", color: '#57077c' }}>Fig.1 - Positive WordCloud.</figcaption>
                             </div>
                             <div class="column-home">
-                                <img src="images/dtctv4.png" alt="wordCloud2" style={{width:"100%"}}/>
+                                <img src={data["neutralWordCloud"]} alt="wordCloud2" style={{ width: "100%" }} />
+                                <figcaption style={{ marginLeft: "25%", color: '#57077c' }}>Fig.2 - Neutral WordCloud.</figcaption>
+
                             </div>
                             <div class="column-home">
-                                <img src="images/dtctv4.png" alt="wordCloud3" style={{width:"100%"}}/>
+                                <img src={data["negativeWordCloud"]} alt="wordCloud3" style={{ width: "100%" }} />
+                                <figcaption style={{ marginLeft: "25%", color: '#57077c' }}>Fig.3 - Negative WordCloud.</figcaption>
+
                             </div>
                         </div>
                     </div>
 
-
+                    <div></div>
                     <div>
                         <div></div>
+                        <div style={{ marginTop: "5%" }}></div>
                         <h1 style={{ color: '#57077c' ,width: '100%', height: "100%" }}>overall features and aspects</h1>
                         <Plot 
-                            style={{width: '100%', height: "100%"}}
+                            style={{width: '250%', height: "100%"}}
                             data={[trace1, trace2, trace3]}
                             layout={{ layout }}
                         />
@@ -122,6 +129,11 @@ function Menu({menuItem}) {
                                     data={[{
                                         values: [pos[index], neu[index], neg[index]],
                                         labels: ['positives', 'neutral', 'negatives'],
+                                        marker: {
+                                            'colors': ['#2ca02c',
+                                                '#ff7f0e',
+                                                '#1f77b4']
+                                        },
                                         type: 'pie'
                                     }]}
                                     layout={{ width: 800, height: 500, title: it + ' statistics' }}
@@ -148,26 +160,38 @@ function Menu({menuItem}) {
                     width: '100%',
                     padding: '3%' }}>
                     <div>
-                        <h1 style={{ color: '#57077c' }}>Word Clouds:</h1>
+                        <h1 style={{ color: '#57077c' }}>{data["productName"]}</h1>
+                        <h1 style={{ color: '#57077c' }}>Word Clouds</h1>
                         <div class="row">
                             <div class="column-home">
-                                <img src="images/dtctv4.png" alt="wordCloud1" style={{width:"100%"}}/>
+                                <img src={data["positiveWordCloud"]} alt="wordCloud1" style={{ width: "100%" }} />
+                                <figcaption style={{ marginLeft: "25%", color: '#57077c' }}>Fig.1 - Positive WordCloud.</figcaption>
                             </div>
                             <div class="column-home">
-                                <img src="images/dtctv4.png" alt="wordCloud2" style={{width:"100%"}}/>
+                                <img src={data["neutralWordCloud"]} alt="wordCloud2" style={{ width: "100%" }} />
+                                <figcaption style={{ marginLeft: "25%", color: '#57077c' }}>Fig.2 - Neutral WordCloud.</figcaption>
+
                             </div>
                             <div class="column-home">
-                                <img src="images/dtctv4.png" alt="wordCloud3" style={{width:"100%"}}/>
+                                <img src={data["negativeWordCloud"]} alt="wordCloud3" style={{ width: "100%" }} />
+                                <figcaption style={{ marginLeft: "25%", color: '#57077c' }}>Fig.3 - Negative WordCloud.</figcaption>
+
                             </div>
                         </div>
-                    </div> 
-                    <div>
+                    </div>
                     <div></div>
+                    <div>
+                        <div style={{ marginTop: "5%" }}></div>
                         <h1 style={{ color: '#57077c' }}>Pie Plot</h1>
                         <Plot
                             data={[{
                                 values: [pos[0], neu[0], neg[0]],
                                 labels: ['positives', 'neutral', 'negatives'],
+                                marker: {
+                                    'colors': ['#2ca02c',
+                                        '#ff7f0e',
+                                        '#1f77b4']
+                                },
                                 type: 'pie'
                             }]}
                             layout={{ width: 500, height: 500, title: 'Piechart demo' }}
@@ -203,7 +227,7 @@ function Menu({menuItem}) {
           marginRight: '-50%',
           transform: 'translate(-50%, -50%)',
           opacity: "90%",
-          height:"550px", //or maxHeight
+          height:"1000px", //or maxHeight
           border:" solid 1px purple", 
         },
       };
@@ -220,8 +244,8 @@ function Menu({menuItem}) {
                 console.log("gowaaa el submit", res.data[0]);
                 setDeets(res.data[0]["details"]); 
                 setData(res.data[0]); 
-                console.log("deets", res.data[0]["details"]["postives"]) 
-                setPos(res.data[0]["details"]["postives"]);
+                console.log("deets", res.data[0]["details"]["positives"]) 
+                setPos(res.data[0]["details"]["positives"]);
                 setNeu(res.data[0]["details"]["neutral"]);
                 setNeg(res.data[0]["details"]["negatives"]);
                 setIsOpen(true);
